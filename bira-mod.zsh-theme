@@ -2,10 +2,10 @@
 local return_code="%(?..%{$fg[red]%}%? ↵%{$reset_color%})"
 
 if [[ $UID -eq 0 ]]; then
-    local user_host='%{$terminfo[bold]$fg[red]%}%n%{$reset_color%}@%{$terminfo[bold]$fg[red]%}%m%{$reset_color%}'
+    local user_host='%{$terminfo[bold]$fg[white]%}[%{$terminfo[bold]$fg[red]%}%n%{$reset_color%}%{$terminfo[bold]%}@%{$terminfo[bold]$fg[red]%}%m%{$terminfo[bold]$fg[white]%}]%{$reset_color%}'
     local user_symbol='#'
 else
-    local user_host='%{$terminfo[bold]$fg[green]%}%n%{$reset_color%}@%{$terminfo[bold]$fg[green]%}%m%{$reset_color%}'
+    local user_host='%{$terminfo[bold]$fg[white]%}[%{$terminfo[bold]$fg[green]%}%n%{$reset_color%}%{$terminfo[bold]%}@%{$terminfo[bold]$fg[green]%}%m%{$terminfo[bold]$fg[white]%}]%{$reset_color%}'
     local user_symbol='$'
 fi
 
@@ -15,7 +15,7 @@ local venv_prompt='$(virtualenv_prompt_info)'
 
 ZSH_THEME_RVM_PROMPT_OPTIONS="i v g"
 
-PROMPT="╭─[${user_host}] ${current_dir}${git_branch}${venv_prompt}
+PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}
 ╰─%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
 
