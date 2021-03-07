@@ -30,7 +30,7 @@ if [[ $UID -eq 0 ]]; then
     local user_host='%{$terminfo[bold]$fg[white]%}[%{$terminfo[bold]$fg[red]%}%n%{$reset_color%}%{$terminfo[bold]%}@%{$terminfo[bold]$fg[red]%}%m%{$terminfo[bold]$fg[white]%}]%{$reset_color%}'
     local user_symbol='#'
 else
-    local user_host='%{$terminfo[bold]$fg[white]%}[%{$terminfo[bold]$fg[$c_user_host]%}%n%{$reset_color%}%{$terminfo[bold]%}@%{$terminfo[bold]$fg[green]%}%m%{$terminfo[bold]$fg[white]%}]%{$reset_color%}'
+    local user_host='%{$terminfo[bold]$fg[white]%}[%{$terminfo[bold]$fg[$c_user_host]%}%n%{$reset_color%}%{$terminfo[bold]%}@%{$terminfo[bold]$fg[$c_user_host]%}%m%{$terminfo[bold]$fg[white]%}]%{$reset_color%}'
     local user_symbol='$'
 fi
 
