@@ -37,7 +37,9 @@ fi
 # Build other strings
 local current_dir='%{$terminfo[bold]$fg[$c_current_dir]%}%~ %{$reset_color%}'
 local git_branch='$(git_prompt_info)'
+
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+local VIRTUAL_ENV=''
 local venv_prompt='$(basename $VIRTUAL_ENV)'
 
 # Set the actual prompt
