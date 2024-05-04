@@ -34,12 +34,18 @@ else
     local user_symbol='$'
 fi
 
+# Get keys
+local ssh_key=''
+if ssh-add -l > /dev/null 2>&1; then
+    ssh_key='🗝️'
+fi
+
 # Build other strings
 local current_dir='%{$terminfo[bold]$fg[$c_current_dir]%}%~ %{$reset_color%}'
 local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
 # Set the actual prompt
-PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}
+PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
 ╰─%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
