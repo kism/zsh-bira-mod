@@ -4,13 +4,10 @@
 fg_array=("magenta";"green";"yellow";"cyan";)
 fg_array=($(shuf -e "${fg_array[@]}"))
 
-
 c_user_host="${fg_array[1]}"
 c_current_dir="${fg_array[2]}"
 c_git_branch="${fg_array[3]}"
 c_venv_prompt="${fg_array[4]}"
-
-
 
 # Git Prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[$c_git_branch]%}‹"
@@ -44,8 +41,6 @@ fi
 local current_dir='%{$terminfo[bold]$fg[$c_current_dir]%}%~ %{$reset_color%}'
 local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
-
-
 
 # Set the actual prompt
 if [[ $TERM == "linux" ]]; then
