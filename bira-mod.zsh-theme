@@ -45,7 +45,16 @@ local current_dir='%{$terminfo[bold]$fg[$c_current_dir]%}%~ %{$reset_color%}'
 local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
+
+
 # Set the actual prompt
-PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
+if [[ $TERM == "linux" ]]; then
+    PROMPT="${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
+%B${user_symbol}%b "
+    RPROMPT="%B${return_code}%b"
+else
+    PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
 ╰─%B${user_symbol}%b "
-RPROMPT="%B${return_code}%b"
+    RPROMPT="%B${return_code}%b"
+fi
+
