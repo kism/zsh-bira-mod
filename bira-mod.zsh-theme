@@ -35,6 +35,13 @@ fi
 local ssh_key=''
 if ssh-add -l > /dev/null 2>&1; then
     ssh_key='🗝️'
+
+    if [[ $TERM == "linux" ]]; then
+        ssh_key='SSH KEY LOADED'
+        RPROMPT="%B${return_code}%b"
+    else
+        ssh_key='🗝️'
+    fi
 fi
 
 # Build other strings
