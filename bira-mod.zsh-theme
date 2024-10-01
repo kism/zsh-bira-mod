@@ -38,12 +38,12 @@ local venv_prompt='$(virtualenv_prompt_info)'
 
 # Set the actual prompt
 if [[ "$TERM" == xterm* || "$TERM" == rxvt* || "$TERM" == urxvt* ]]; then
-    PROMPT="${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
-%B${user_symbol}%b "
-    RPROMPT="%B${return_code}%b"
-else
     PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
 ╰─%B${user_symbol}%b "
+    RPROMPT="%B${return_code}%b"
+else
+    PROMPT="${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
+%B${user_symbol}%b "
     RPROMPT="%B${return_code}%b"
 fi
 
