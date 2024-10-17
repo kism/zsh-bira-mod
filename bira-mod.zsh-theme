@@ -37,7 +37,7 @@ local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
 # Set the actual prompt
-if [[ "$TERM" == xterm* || "$TERM" == rxvt* || "$TERM" == urxvt* || "$TERM" == alacritty || "$TERM" == foot ]]; then
+if [[ "$TERM" == xterm* || "$TERM" == rxvt* || "$TERM" == urxvt* || "$TERM" == alacritty || "$TERM" == foot || "$COLORTERM" == truecolor]]; then
     PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
 ╰─%B${user_symbol}%b "
     RPROMPT="%B${return_code}%b"
