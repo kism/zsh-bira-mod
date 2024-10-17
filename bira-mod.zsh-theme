@@ -1,5 +1,14 @@
 # ZSH Theme - Bira, mod
 
+# Functions
+function check_modern_terminal() {
+    if [[ "$TERM" != vt* && "$TERM" != linux && "$TERM" != linux && "$TERM" != dumb ]]; then # Easier to check if it not a legacy terminal
+        return 0 # Zero is success/true
+    else
+        return 1
+    fi
+}
+
 # Foreground colour array
 fg_array=("magenta";"green";"yellow";"cyan";)
 fg_array=($(shuf -e "${fg_array[@]}"))
@@ -37,7 +46,7 @@ local git_branch='$(git_prompt_info)'
 local venv_prompt='$(virtualenv_prompt_info)'
 
 # Set the actual prompt
-if [[ "$TERM" == xterm* || "$TERM" == rxvt* || "$TERM" == urxvt* || "$TERM" == alacritty || "$TERM" == foot || "$COLORTERM" == truecolor]]; then
+if check_modern_terminal; then
     PROMPT="╭─${user_host} ${current_dir}${git_branch}${venv_prompt}${ssh_key}
 ╰─%B${user_symbol}%b "
     RPROMPT="%B${return_code}%b"
@@ -46,4 +55,3 @@ else
 %B${user_symbol}%b "
     RPROMPT="%B${return_code}%b"
 fi
-
