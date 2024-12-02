@@ -13,7 +13,7 @@ function check_modern_terminal() {
 fg_array=("magenta";"green";"yellow";"cyan";)
 
 # Shuffle the array https://www.zsh.org/mla/users/2019/msg00678.html
-local -i i
+# local -i i
 for ((i = 2; i <= $#fg_array; ++i)); do
     local j=$((RANDOM % i + 1))
     local tmp=$fg_array[i]
