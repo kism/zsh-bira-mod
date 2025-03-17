@@ -27,7 +27,8 @@ local c_current_dir=$fg_array[2]
 local c_git_branch=$fg_array[3]
 local c_venv_prompt=$fg_array[4]
 
-local venv_prompt="$(virtualenv_prompt_info)"
+local git_branch='$(git_prompt_info)'
+local venv_prompt='$(virtualenv_prompt_info)'
 
 # Git Prompt
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[$c_git_branch]%}‹"
@@ -56,10 +57,10 @@ fi
 PROMPT+=" %F{$c_current_dir%}%~ %F{white}"
 
 # Add git info to prompt
-PROMPT+="$(git_prompt_info)"
+PROMPT+="${git_branch}"
 
 # Add virtual env info if available
-PROMPT+="$venv_prompt"
+PROMPT+="${venv_prompt}"
 
 # Set the actual prompt
 if check_modern_terminal; then
