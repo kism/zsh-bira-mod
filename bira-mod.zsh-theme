@@ -57,10 +57,10 @@ fi
 PROMPT+=" %F{$c_current_dir%}%~ %F{white}"
 
 # Add git info to prompt
-# PROMPT+='%F{white}$(git_prompt_info)'
+PROMPT+='%F{white}$(git_prompt_info)'
 
 # Add virtual env info if available
-# PROMPT+='$(virtualenv_prompt_info)'
+PROMPT+='$(virtualenv_prompt_info)'
 
 # Set the actual prompt
 if check_modern_terminal; then
