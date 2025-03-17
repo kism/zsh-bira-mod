@@ -12,7 +12,6 @@ function check_modern_terminal() {
 # Foreground colour array
 fg_array=("magenta" "green" "yellow" "cyan")
 
-echo $fg_array[1]
 
 # Shuffle the array https://www.zsh.org/mla/users/2019/msg00678.html
 # local -i i
@@ -23,7 +22,6 @@ for ((i = 2; i <= $#fg_array; ++i)); do
     fg_array[j]=$tmp
 done
 
-echo $fg_array[1]
 
 # Assign colors from the array (using proper array indexing)
 local c_user_host=$fg_array[1]
@@ -46,8 +44,6 @@ local return_code="%(?..%F{red}%? ↵%F{white})"
 
 PROMPT="╭─"
 
-echo $c_user_host
-echo "%F{$c_user_host%}"
 
 # Build the user string
 if [[ $UID -eq 0 ]]; then
@@ -77,6 +73,4 @@ else
     RPROMPT="%B${return_code}%b"
 fi
 
-# PROMPT="%F{green}%n%F{white}@%F{green}%m%F{white}"
-echo $PROMPT
 
